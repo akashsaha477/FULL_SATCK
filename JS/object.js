@@ -24,6 +24,6 @@ const allUsers=[
 
 for(let i=0;i<allUsers.length;i++){
     if(allUsers[i]["gender"]=="Male"){
-        console.log(allUsers[i]["firstname"])
+        console.log(allUsers[i]["firstname"]);
     }
 }
