@@ -4,7 +4,7 @@ function sum(num1,num2, fnToCall){
 }
 
 function displayResult(data){
-    console.log("Result of the sum is:"+ data);
+    console.log("Result of the sum is: "+ data);
 }
 
 function displayResult(data){
@@ -12,3 +12,5 @@ function displayResult(data){
 }
 
 const ans=sum(1,2,displayResult);
+//callbacks
+//passing fuction as an argument
