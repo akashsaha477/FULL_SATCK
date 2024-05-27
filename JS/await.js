@@ -7,7 +7,7 @@ function kiratsAsyncFunction () {
     });
     return p;
     }
-     async function main() {
+async function main() {
     // no callbacks, no. then syntax
     // kiratsAsyncFunction(). then (function(value) {
     // console. log(value);
@@ -16,4 +16,9 @@ function kiratsAsyncFunction () {
     console. log("hi there1");
      }
     main( );
-    console. log( "after main");
+    console.log( "after main");
+
+    //cannot use await in a top level function
+    //we have to use async function
+
+    //
