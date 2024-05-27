@@ -1,15 +1,16 @@
 const fs = require('fs');
 
 function akashReadFile(){
-    return new Promise(function(resolve){
+    let a= new Promise(function(resolve){
         fs.ReadFile("a.txt","utf-8",function(err,data){
             resolve(data);
         });
+        return a;
     })
 }
 
 function onDone(data){
-    console.log(data);
+    console.log(data)
 }
 
-akashReadFile().then(onDone); 
+akashReadFile().then(onDone);
