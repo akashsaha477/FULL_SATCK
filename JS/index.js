@@ -7,8 +7,8 @@ function cube(n){
 }
 
 function Akash12(a,b,fntofunc1,fntofunc2){
-    //let p=fntofunc1(a);
-    //let q=fntofunc2(b);
+    let p=fntofunc1(a);
+    let q=fntofunc2(b);
     return p+q; 
 
 }
