@@ -1,0 +1,57 @@
+<html>
+    <script>
+        let timeout;
+
+        function debouncedpopulateDiv() {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                populateDiv();
+            }, 100); // Debounce delay to reduce frequent updates
+        }
+
+        function populateDiv() {
+            const a = document.getElementById("num1").value;
+            const b = document.getElementById("num2").value;
+
+            // Ensure the URL template string is properly formatted
+            fetch(`/JS/DOM/index.html?a=${encodeURIComponent(a)}&b=${encodeURIComponent(b)}`)
+                .then(res => res.json())
+                .then(data => {
+                    const sum = document.getElementById("result");
+                    sum.innerHTML = `Sum: ${data.sum}`;
+                })
+                .catch(err => {
+                    console.error("Error fetching the data:", err);
+                });
+        }
+
+        function calculateSum() {
+            const a = document.getElementById("num1").value;
+            const b = document.getElementById("num2").value;
+
+            if (isNaN(a) || isNaN(b)) {
+                alert("Please enter valid numbers.");
+                return;
+            }
+
+            const sum = document.getElementById("result");
+            sum.innerHTML = `Sum: ${parseInt(a) + parseInt(b)}`;
+        }
+
+        // Automatically calculate the sum when inputs change
+        document.addEventListener("DOMContentLoaded", function () {
+            const num1 = document.getElementById("num1");
+            const num2 = document.getElementById("num2");
+
+            // Attach debouncedpopulateDiv to input events
+            num1.addEventListener("input", debouncedpopulateDiv);
+            num2.addEventListener("input", debouncedpopulateDiv);
+        });
+    </script>
+    <body>
+        <input id="num1" type="text" placeholder="First number"></input><br>
+        <input id="num2" type="text" placeholder="Second number"></input><br>
+        <button onclick="calculateSum()">Calculate Sum</button><br>
+        <div id="result"></div>
+    </body>
+</html>
